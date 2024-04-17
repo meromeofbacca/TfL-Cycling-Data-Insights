@@ -6,4 +6,7 @@ sources:
     schema: uk_cycling
 
     tables:
-      - name: cycling_partitioned
+      - name: cycleways_cycling_partitioned
+      - name: central_cycling_partitioned
+      - name: outer_cycling_partitioned
+      - name: inner_cycling_partitioned

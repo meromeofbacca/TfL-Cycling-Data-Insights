@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: de-zoomcamp-420207
+    schema: uk_cycling
+
+    tables:
+      - name: cycling_partitioned

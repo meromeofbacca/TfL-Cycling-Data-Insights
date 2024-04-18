@@ -19,6 +19,7 @@ The goal of this project is to build an end to end data pipeline to ingest, stor
 
 ## Data Pipeline Architecture
 
+![](images/Architecture.png)
 
 # Batch ingestion
 Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TfL source data using Mage. A datetime column is added using the date and time columns and a deprecated SiteID that has been replaced by UnqID has it's data transferred to the UnqID column and then dropped. The cycling data is then exported in GCS partitioned by day using Mage.

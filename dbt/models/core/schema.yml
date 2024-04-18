@@ -1,0 +1,110 @@
+version: 2
+
+models:
+  - name: fact_counts
+    description: ""
+    columns:
+      - name: count_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: counting_period
+        data_type: string
+        description: ""
+
+      - name: unqid
+        data_type: string
+        description: ""
+
+      - name: weather
+        data_type: string
+        description: ""
+
+      - name: day
+        data_type: string
+        description: ""
+
+      - name: round
+        data_type: string
+        description: ""
+
+      - name: dir
+        data_type: string
+        description: ""
+
+      - name: path
+        data_type: string
+        description: ""
+
+      - name: mode
+        data_type: string
+        description: ""
+
+      - name: count
+        data_type: int64
+        description: ""
+
+      - name: datetime
+        data_type: timestamp
+        description: ""
+
+      - name: area
+        data_type: string
+        description: ""
+
+  - name: monitoring_locations
+    description: ""
+    columns:
+      - name: site_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: location_description
+        data_type: string
+        description: ""
+
+      - name: borough
+        data_type: string
+        description: ""
+
+      - name: functional_area_for_monitoring
+        data_type: string
+        description: ""
+
+      - name: road_type
+        data_type: string
+        description: ""
+
+      - name: is_it_on_the_strategic_cio_panel
+        data_type: int64
+        description: ""
+
+      - name: old_site_id_legacy
+        data_type: string
+        description: ""
+
+      - name: easting_uk_grid
+        data_type: float64
+        description: ""
+
+      - name: northing_uk_grid
+        data_type: float64
+        description: ""
+
+      - name: latitude
+        data_type: float64
+        description: ""
+
+      - name: longitude
+        data_type: float64
+        description: ""

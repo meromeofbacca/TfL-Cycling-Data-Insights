@@ -63,7 +63,7 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 3) Run pipeline 3
 - Make sure the data exists in your GCS bucket and your BigQuery dataset
 
-## Transformations with dbt
+# Transformations with dbt
 
 # Setup project
 - Go to dbt cloud and create a new project

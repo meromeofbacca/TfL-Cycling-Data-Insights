@@ -19,6 +19,15 @@ The goal of this project is to build an end to end data pipeline to ingest, stor
 
 ![](images/Architecture.png)
 
+# Batch ingestion
+Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TfL source data using Mage. A datetime column is added using the date and time columns and a deprecated SiteID that has been replaced by UnqID has it's data transferred to the UnqID column and then dropped. The cycling data is then exported in GCS partitioned by day using Mage.
+
+# Loading to Data Warehouse
+Data is loaded from GCS by area and where slight transformation take place. Column names are normalized to lowercase and underscored to replace spaces, and columns are renamed.
+
+# Transformations
+Using dbt, the four tables defined by area are given a surrogate key formed from counting period, datetime and unqid and are unioned together and joined with a reference table of monitoring locations to create a fact table of counts in all areas with the location data corresponding to the counting site.
+
 ## Data Visualization
 
 View the Looker Studio dashboard [here](https://lookerstudio.google.com/reporting/91e140aa-d586-4d5b-a42f-43c68d5754b0).
@@ -78,4 +87,7 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 ## Build models
 - Run dbt build --vars '{'is_test_run':'false'}'
 - Refresh BigQuery to find your models in the new dataset dbt created under the name {your_bigquery_dataset}_models
-  
+
+# Next Steps/Improvements
+- Use spark to create more exploratory tables using parallization
+- Use Tableau to create a concise and visually improved dashboard

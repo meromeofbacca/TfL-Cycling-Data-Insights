@@ -67,6 +67,7 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
        - Data exporter: static_table_to_gcs.sql
 - Once the pipelines are created, create a runtime variable **area** in both pipelines 1 and 2.
   - The values of the runtime variable **area** will be cycleways, central, inner, outer.
+![](runtime-variable.png)
 1) Run pipeline 1 each time using a different value for the **area** runtime variable
 2) Run pipeline 2 each time using a different value for the **area** runtime variable
 3) Run pipeline 3

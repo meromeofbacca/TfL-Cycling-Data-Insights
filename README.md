@@ -1,5 +1,7 @@
 # TfL Cycling Data Engineering Project documentation
 
+![](images/Cyclists_at_Hyde_Park.jpg)
+
 ## Overview
 The Active Travel Counts Programme by Transport for London (TfL) compiles historical and ongoing data on cycling, e-scooters, and pedestrian counts in London since 2014. Initially focused on monitoring cycling volumes, the programme expanded in 2022 to include counts of e-scooters and pedestrians, providing a comprehensive dataset for analysis and visualization.
 

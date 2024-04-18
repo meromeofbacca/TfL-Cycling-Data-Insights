@@ -37,7 +37,7 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 # Reproduce Project
 
 ## Setting up virtual machine
-- Create a Google Cloud Platform virtual machine and crete GCP service accounts with permissions for GCS and BQ
+- Create a Google Cloud Platform virtual machine and create GCP service accounts with permissions for GCS and BQ
 - Clone this directory to your VM
 - Install Anaconda, Google Cloud SDK, Terraform and Docker
     - Make sure to authenticate your google service account credentials on your VM

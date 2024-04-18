@@ -37,18 +37,30 @@ monitoring_locations as (
     select * from {{ ref('monitoring_locations') }}
 )
 select 
-    count_id,    
-    counting_period,
-    unqid,
-    weather,
-    day,
-    round,
-    dir,
-    path,
-    mode,
-    count,
-    datetime,
-    area
+    counts_unioned.count_id,    
+    counts_unioned.counting_period,
+    counts_unioned.unqid,
+    counts_unioned.weather,
+    counts_unioned.day,
+    counts_unioned.round,
+    counts_unioned.dir,
+    counts_unioned.path,
+    counts_unioned.mode,
+    counts_unioned.count,
+    counts_unioned.datetime,
+    counts_unioned.area,
+    monitoring_locations.site_id,
+    monitoring_locations.location_description,
+    monitoring_locations.borough,
+    monitoring_locations.functional_area_for_monitoring,
+    monitoring_locations.road_type,
+    monitoring_locations.is_it_on_the_strategic_cio_panel,
+    monitoring_locations.old_site_id_legacy,
+    monitoring_locations.easting_uk_grid,
+    monitoring_locations.northing_uk_grid,
+    monitoring_locations.latitude,
+    monitoring_locations.longitude
+
 from counts_unioned
 inner join monitoring_locations 
 on counts_unioned.unqid = monitoring_locations.site_id

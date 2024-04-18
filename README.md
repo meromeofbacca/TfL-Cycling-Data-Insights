@@ -93,6 +93,6 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 - Refresh BigQuery to find your models in the new dataset dbt created under the name {your_bigquery_dataset}_models
 
 # Next Steps/Improvements
-- Use spark to create more exploratory tables using parallization
+- Implement spark to create more exploratory tables using parallization
 - Use Tableau to create a concise and visually improved dashboard
-
+- Further documentation on CI/CD and pipeline triggers/dbt jobs/reproducing project

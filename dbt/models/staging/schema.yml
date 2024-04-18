@@ -6,4 +6,238 @@ sources:
     schema: uk_cycling
 
     tables:
-      - name: cycling_partitioned
+      - name: cycleways_cycling_partitioned
+      - name: central_cycling_partitioned
+      - name: outer_cycling_partitioned
+      - name: inner_cycling_partitioned
+      - name: monitoring_locations
+
+models:
+  - name: stg_outer_cycling_partitioned
+    description: ""
+    columns:
+      - name: count_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: counting_period
+        data_type: string
+        description: ""
+
+      - name: unqid
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              field: site_id
+              to: ref('monitoring_locations')
+              severity: warn
+
+      - name: weather
+        data_type: string
+        description: ""
+
+      - name: day
+        data_type: string
+        description: ""
+
+      - name: round
+        data_type: string
+        description: ""
+
+      - name: dir
+        data_type: string
+        description: ""
+
+      - name: path
+        data_type: string
+        description: ""
+
+      - name: mode
+        data_type: string
+        description: ""
+
+      - name: count
+        data_type: int64
+        description: ""
+
+      - name: datetime
+        data_type: timestamp
+        description: ""
+
+  - name: stg_central_cycling_partitioned
+    description: ""
+    columns:
+      - name: count_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: counting_period
+        data_type: string
+        description: ""
+
+      - name: unqid
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              field: site_id
+              to: ref('monitoring_locations')
+              severity: warn
+
+      - name: weather
+        data_type: string
+        description: ""
+
+      - name: day
+        data_type: string
+        description: ""
+
+      - name: round
+        data_type: string
+        description: ""
+
+      - name: dir
+        data_type: string
+        description: ""
+
+      - name: path
+        data_type: string
+        description: ""
+
+      - name: mode
+        data_type: string
+        description: ""
+
+      - name: count
+        data_type: int64
+        description: ""
+
+      - name: datetime
+        data_type: timestamp
+        description: ""
+
+  - name: stg_inner_cycling_partitioned
+    description: ""
+    columns:
+      - name: count_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: counting_period
+        data_type: string
+        description: ""
+
+      - name: unqid
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              field: site_id
+              to: ref('monitoring_locations')
+              severity: warn
+
+      - name: weather
+        data_type: string
+        description: ""
+
+      - name: day
+        data_type: string
+        description: ""
+
+      - name: round
+        data_type: string
+        description: ""
+
+      - name: dir
+        data_type: string
+        description: ""
+
+      - name: path
+        data_type: string
+        description: ""
+
+      - name: mode
+        data_type: string
+        description: ""
+
+      - name: count
+        data_type: int64
+        description: ""
+
+      - name: datetime
+        data_type: timestamp
+        description: ""
+
+  - name: stg_cycleways_cycling_partitioned
+    description: ""
+    columns:
+      - name: count_id
+        data_type: string
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: counting_period
+        data_type: string
+        description: ""
+
+      - name: unqid
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              field: site_id
+              to: ref('monitoring_locations')
+              severity: warn
+
+      - name: weather
+        data_type: string
+        description: ""
+
+      - name: day
+        data_type: string
+        description: ""
+
+      - name: round
+        data_type: string
+        description: ""
+
+      - name: dir
+        data_type: string
+        description: ""
+
+      - name: path
+        data_type: string
+        description: ""
+
+      - name: mode
+        data_type: string
+        description: ""
+
+      - name: count
+        data_type: int64
+        description: ""
+
+      - name: datetime
+        data_type: timestamp
+        description: ""
+

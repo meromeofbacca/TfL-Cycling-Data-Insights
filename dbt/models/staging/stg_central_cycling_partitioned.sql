@@ -9,7 +9,7 @@ with cycling_data as
 )
 select
    -- identifiers
-    {{ dbt_utils.generate_surrogate_key(['unqid', 'datetime']) }} as count_id,    
+    {{ dbt_utils.generate_surrogate_key(['unqid', 'datetime']) }} as count_id,  
     counting_period,
     unqid,
     weather,

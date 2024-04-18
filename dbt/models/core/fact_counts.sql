@@ -49,7 +49,6 @@ select
     counts_unioned.count,
     counts_unioned.datetime,
     counts_unioned.area,
-    monitoring_locations.site_id,
     monitoring_locations.location_description,
     monitoring_locations.borough,
     monitoring_locations.functional_area_for_monitoring,

@@ -11,7 +11,7 @@ The goal of this project is to build an end to end data pipeline to ingest, stor
 
 - Containerization: **Docker**
 - IaC: **Terraform**
-- Orchestration: **Mage** 
+- Workflow Orchestration: **Mage** 
 - Data Lake: **Google Cloud Storage**
 - Data Warehouse: **BigQuery**
 - Transformation: **dbt**

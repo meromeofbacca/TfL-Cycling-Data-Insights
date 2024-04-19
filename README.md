@@ -8,6 +8,8 @@ The Active Travel Counts Programme by Transport for London (TfL) compiles histor
 
 The goal of this project is to build an end to end data pipeline to ingest, store, transform and visually analyze Transport for London (TfL) cycling data. The pipeline will source its data from the TfL cycling data page (https://cycling.data.tfl.gov.uk/), ingest it using Mage and then export it to a data lake in Google Cloud Storage. The data will be transported to Google BigQuery where transformations and table joins will be performed in dbt and loaded back into BigQuery. Data visualization will then take place in a dashboard in Looker Studio.
 
+# Objective/Problem
+The data will be analyzed to see cycling patterns in London over time, and generate insights on the effect of COVID on cyclings counts. Data on the most dense cycling areas in London will be revealed as well as the most popular months to cycle in London. This data can be used to help a cyclist decide when to take bike rides and where, if they would rather avoid other cyclists or ride with them.
 ## Technologies
 
 - Containerization: **Docker**

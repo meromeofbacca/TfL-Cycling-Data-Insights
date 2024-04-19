@@ -98,4 +98,6 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 - Implement spark to create more exploratory tables using parallization
 - Add more clustering fields like borough
 - Use Tableau to create a concise and visually improved dashboard
-- Further documentation on CI/CD and pipeline triggers/dbt jobs/reproducing project
+- Further documentation on CI/CD dbt jobs/reproducing project
+- Create a CI/CD pipeline beyond dbt CI checks
+- Add tests to Mage pipeline + triggers

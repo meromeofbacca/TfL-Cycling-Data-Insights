@@ -96,5 +96,6 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 
 # Next Steps/Improvements
 - Implement spark to create more exploratory tables using parallization
+- Add more clustering fields like borough
 - Use Tableau to create a concise and visually improved dashboard
 - Further documentation on CI/CD and pipeline triggers/dbt jobs/reproducing project

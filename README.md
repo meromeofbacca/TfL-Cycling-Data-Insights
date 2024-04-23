@@ -28,7 +28,7 @@ The data will be analyzed to observe cycling patterns in London over time, and g
 Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TfL source data using Mage. A datetime column is added by combining the date and time columns, and a deprecated SiteID field that has been replaced by the UnqID field has its data transferred to the UnqID column and subsequently dropped. The cycling data is then exported in GCS partitioned by day using Mage.
 
 # Loading to Data Warehouse
-Data is loaded from GCS by area and where slight transformation take place. Column names are normalized to lowercase and underscored to replace spaces, and columns are renamed. The data is also partitioned by date and clustered by unqid. Partitioning by datetime is useful as data from various time periods can be easily extracted, and clustering on unqid is important as often you would be grouping by the count location.
+Data is loaded from GCS by area and where slight transformations take place. Column names are normalized to lowercase and underscored to replace spaces, and columns are renamed. The data is also partitioned by date and clustered by unqid. Partitioning by datetime is useful as data from various time periods can be easily extracted, and clustering on unqid is important as often you would be grouping by the count location.
 
 # Transformations
 Using dbt, the four tables defined by area are given a surrogate key formed from counting period, datetime and unqid and are unioned together and joined with a reference table of monitoring locations to create a fact table of counts in all areas with the location data corresponding to the counting site.

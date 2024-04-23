@@ -28,10 +28,10 @@ The data will be analyzed to observe cycling patterns in London over time, and g
 Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TfL source data using Mage. A datetime column is added by combining the date and time columns, and a deprecated SiteID field that has been replaced by the UnqID field has its data transferred to the UnqID column and subsequently dropped. The cycling data is then exported in GCS partitioned by day using Mage.
 
 # Loading to Data Warehouse
-Data is loaded from GCS by area and where slight transformations take place. Column names are normalized to lowercase and underscored to replace spaces, and columns are renamed. The data is also partitioned by date and clustered by unqid. Partitioning by datetime is useful as data from various time periods can be easily extracted, and clustering on unqid is important as often you would be grouping by the count location.
+Data is loaded from GCS by area and where slight transformations take place. Column names are normalized to lowercase, underscores are used to replace spaces, and columns are renamed. The data is also partitioned by date and clustered by unqid. Partitioning by datetime is useful as data from various time periods can be easily extracted, and clustering on unqid is important as often you would be grouping by the count location.
 
 # Transformations
-Using dbt, the four tables defined by area are given a surrogate key formed from counting period, datetime and unqid and are unioned together and joined with a reference table of monitoring locations to create a fact table of counts in all areas with the location data corresponding to the counting site.
+Using dbt, the four tables defined by area are given a surrogate key formed from the counting_period, datetime and unqid fields. The tables are unioned together and joined with a reference table of monitoring locations to create a fact table.
 
 ## Data Visualization
 
@@ -82,8 +82,8 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 
 ## Setup project
 - Go to dbt cloud and create a new project
-  - Make sure to connect your github repository to the one containing this project
-  - Subdirectory should be dbt
+  - Make sure to connect the github repository to the one containing your project
+  - Subdirectory should be dbt if no changes are made to the cloned repository
   - Connection should be to BigQuery
 ## Changing files
 - Enter into the cloud cli
@@ -91,7 +91,7 @@ View the Looker Studio dashboard [here](https://lookerstudio.google.com/reportin
 - Go to the models/staging directory and inside schema.yml change the database id to your database id, and the schema to your BigQuery dataset
     - Make sure the table names match the ones in BigQuery
 ## Build models
-- Run dbt build --vars '{'is_test_run':'false'}'
+- Run dbt build --vars '{'is_test_run':'false'}' (use 'true' to do a test run)
 - Refresh BigQuery to find your models in the new dataset dbt created under the name {your_bigquery_dataset}_models
 
 # Next Steps/Improvements

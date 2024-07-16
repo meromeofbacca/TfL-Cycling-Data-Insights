@@ -4,9 +4,9 @@
 ![](images/Cyclists_at_Hyde_Park.jpg)
 
 ## Overview
-The Active Travel Counts Programme by Transport for London (TfL) compiles historical and ongoing data on cycling, e-scooters, and pedestrian counts in London since 2014. Initially focused on monitoring cycling volumes, the programme expanded in 2022 to include counts of e-scooters and pedestrians, providing a comprehensive dataset for analysis and visualization.
+The Active Travel Counts Programme by Transport for London (TFL) compiles historical and ongoing data on cycling, e-scooters, and pedestrian counts in London since 2014. Initially focused on monitoring cycling volumes, the programme expanded in 2022 to include counts of e-scooters and pedestrians, providing a comprehensive dataset for analysis and visualization.
 
-The goal of this project is to build an end to end data pipeline to ingest, store, transform and visually analyze Transport for London (TfL) cycling data. The pipeline will source its data from the TfL cycling data page (https://cycling.data.tfl.gov.uk/), ingest it using Mage and then export it to a data lake in Google Cloud Storage. The data will be transported to Google BigQuery where transformations and table joins will be performed in dbt and loaded back into BigQuery. Data visualization will then take place in a dashboard in Looker Studio.
+The goal of this project is to build an end to end data pipeline to ingest, store, transform and visually analyze Transport for London (TFL) cycling data. The pipeline will source its data from the TFL cycling data page (https://cycling.data.tfl.gov.uk/), ingest it using Mage and then export it to a data lake in Google Cloud Storage. The data will be transported to Google BigQuery where transformations and table joins will be performed in dbt and loaded back into BigQuery. Data visualization will then take place in a dashboard in Looker Studio.
 
 ## Objective/Problem
 The data will be analyzed to observe cycling patterns in London over time, and generate insights on the effect of COVID on cyclings counts. Data on the most dense cycling areas in London will be revealed as well as the most popular months to cycle in London. This data can be used to help a cyclist decide when to take bike rides and where, and if they would rather avoid other cyclists or ride with them.
@@ -25,7 +25,7 @@ The data will be analyzed to observe cycling patterns in London over time, and g
 ![](images/Architecture.jpg)
 
 # Batch ingestion
-Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TfL source data using Mage. A datetime column is added by combining the date and time columns, and a deprecated SiteID field that has been replaced by the UnqID field has its data transferred to the UnqID column and subsequently dropped. The cycling data is then exported in GCS partitioned by day using Mage.
+Data is separated by area (Cycleways, Central, Inner, Outer) and is batch ingested from TFL source data using Mage. A datetime column is added by combining the date and time columns, and a deprecated SiteID field that has been replaced by the UnqID field has its data transferred to the UnqID column and subsequently dropped. The cycling data is then exported in GCS partitioned by day using Mage.
 
 # Loading to Data Warehouse
 Data is loaded from GCS by area and where slight transformations take place. Column names are normalized to lowercase, underscores are used to replace spaces, and columns are renamed. The data is also partitioned by date and clustered by unqid. Partitioning by datetime is useful as data from various time periods can be easily extracted, and clustering on unqid is important as often you would be grouping by the count location.
